@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: boxfuze-deployment
+  labels:
+    app: boxfuze
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: boxfuze
+  template:
+    metadata:
+      labels:
+        app: boxfuze
+    spec:
+      containers:
+      - name: boxfuze
+        image: avasekho/jenkins:boxfuze-app
+        ports:
+        - containerPort: 8080
